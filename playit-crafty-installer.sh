@@ -31,7 +31,7 @@ step "Creating Crafty user account..."
 if id "crafty" &>/dev/null; then
     warn "User 'crafty' already exists. Skipping."
 else
-    sudo useradd crafty -s /bin/bash || error_exit "Failed to create user 'crafty'."
+    sudo useradd -m -s /bin/bash crafty || error_exit "Failed to create user 'crafty'."
 fi
 
 step "Creating directory structure..."
