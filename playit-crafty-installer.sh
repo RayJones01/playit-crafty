@@ -37,6 +37,8 @@ fi
 step "Creating directory structure..."
 sudo mkdir -p /var/opt/minecraft/crafty /var/opt/minecraft/server || error_exit "Failed creating directories."
 sudo chown -R crafty:crafty /var/opt/minecraft || error_exit "Failed setting permissions."
+sudo mkdir -p /home/crafty
+sudo chown -R crafty:crafty /home/crafty
 
 step "Cloning Crafty Controller repository..."
 sudo -u crafty git clone https://gitlab.com/crafty-controller/crafty-4.git /var/opt/minecraft/crafty/crafty-4 \
@@ -44,6 +46,7 @@ sudo -u crafty git clone https://gitlab.com/crafty-controller/crafty-4.git /var/
 
 step "Creating Python virtual environment..."
 sudo -u crafty python3 -m venv /var/opt/minecraft/crafty/.venv || error_exit "Failed creating virtual environment."
+sudo chown -R crafty:crafty /var/opt/minecraft/crafty
 
 step "Installing Crafty Python dependencies..."
 sudo -u crafty /var/opt/minecraft/crafty/.venv/bin/pip install --no-cache-dir -r /var/opt/minecraft/crafty/crafty-4/requirements.txt \
