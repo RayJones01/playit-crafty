@@ -24,7 +24,7 @@ warn() {
 # Install :^)
 step "Updating package list and installing dependencies..."
 sudo apt update || error_exit "Failed to update apt repositories."
-sudo apt install -y git python3 python3-dev python3-pip openjdk-21-jdk openjdk-21-jre \
+sudo apt install -y git python3 python3-dev python3-pip python3.13-venv openjdk-21-jdk openjdk-21-jre \
 || error_exit "Dependency installation failed."
 
 step "Creating Crafty user account..."
